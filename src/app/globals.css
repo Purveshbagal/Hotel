@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-indigo-50: #edf7f5;
+  --color-indigo-100: #d4eeea;
+  --color-indigo-200: #aedcd4;
+  --color-indigo-300: #79c1b6;
+  --color-indigo-400: #44a698;
+  --color-indigo-500: #248779;
+  --color-indigo-600: #176b60;
+  --color-indigo-700: #15564f;
+  --color-indigo-800: #14463f;
+  --color-indigo-900: #103b36;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    background: #f5f6f3;
+  }
+  ::selection {
+    @apply bg-indigo-100;
+  }
+}
+
+@layer components {
+  .input {
+    @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm
+      placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20
+      disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-500 read-only:bg-slate-50;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-slate-700;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white;
+    box-shadow: 0 3px 16px rgb(20 55 48 / 4%);
+  }
+  .tbl {
+    @apply w-full text-left text-sm;
+  }
+  .tbl thead th {
+    @apply whitespace-nowrap border-b border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-slate-500;
+  }
+  .tbl tbody td {
+    @apply border-b border-slate-100 px-4 py-3 align-middle;
+  }
+  .tbl tbody tr:last-child td {
+    @apply border-b-0;
+  }
+  .tbl tbody tr:hover td {
+    @apply bg-slate-50/70;
+  }
+  .tbl tfoot td {
+    @apply border-t border-slate-200 bg-slate-50 px-4 py-2.5 font-semibold;
+  }
+  .link {
+    @apply font-medium text-indigo-600 hover:text-indigo-800 hover:underline;
+  }
+}
+
+@layer base {
+  button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), select { cursor: pointer; }
+  :focus-visible { outline: 2px solid #248779; outline-offset: 3px; }
+  input, select, textarea { accent-color: #176b60; }
+}
+.hospitality-sidebar { background: linear-gradient(165deg, #112e2b, #172d2d 65%, #203633); }
+.login-panel { background: radial-gradient(ellipse at 80% 20%, #35685d 0, transparent 50%), linear-gradient(150deg, #153d35, #102b28); }
+.login-arch { border: 1px solid #d4bb8240; border-radius: 48% 48% 0 0; }
+.thermal-paper { overflow-wrap: anywhere; }
+.thermal-paper td, .thermal-paper th { vertical-align: top; padding: 3px 1px; }
+.thermal-paper tr { break-inside: avoid; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+  @page {
+    margin: 12mm;
+  }
+}
